@@ -25,17 +25,28 @@ import org.slf4j.LoggerFactory;
 public class ConfTracker {
     private static final Logger LOG = LoggerFactory.getLogger(ConfTracker.class);
     public static boolean isLogEnabled = Boolean.getBoolean("ctest.log");
-    public static void trackGet(HiveConf.ConfVars var, Object value) {
-        ConfigTracker.trackGet(var.name(), String.valueOf(value));
+
+    private static String getStackTrace() {
+        String stacktrace = " ";
+        for (StackTraceElement element : Thread.currentThread().getStackTrace()) {
+            if (element.getClassName().contains("Test")) {
+                stacktrace = stacktrace.concat(element + "\t");
+            }
+        }
+        return stacktrace;
+    }
+
+    public static void trackGet(String name, String value) {
+        ConfigTracker.trackGet(name, value);
         if (isLogEnabled) {
-            LOG.info(String.format("[CTEST][GET-PARAM] %s = %s", var.name(), value));
+            LOG.info(String.format("[CTEST][GET-PARAM] %s = %s, %s", name, value, getStackTrace()));
         }
     }
 
-    public static void trackSet(HiveConf.ConfVars var, Object value) {
-        ConfigTracker.trackSet(var.name(), String.valueOf(value));
+    public static void trackSet(String name, String value) {
+        ConfigTracker.trackSet(name, value);
         if (isLogEnabled) {
-            LOG.info(String.format("[CTEST][SET-PARAM] %s = %s", var.name(), value));
+            LOG.info(String.format("[CTEST][SET-PARAM] %s = %s, %s", name, value, getStackTrace()));
         }
     }
 }

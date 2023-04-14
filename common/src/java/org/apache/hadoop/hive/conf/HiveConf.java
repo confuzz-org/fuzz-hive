@@ -5939,14 +5939,12 @@ public class HiveConf extends Configuration {
     if (var.altName != null) {
       ret = conf.getInt(var.varname, conf.getInt(var.altName, var.defaultIntVal));
     }
-    ConfTracker.trackGet(var, String.valueOf(ret));
     return ret;
   }
 
   public static void setIntVar(Configuration conf, ConfVars var, int val) {
     assert (var.valClass == Integer.class) : var.varname;
     conf.setInt(var.varname, val);
-    ConfTracker.trackSet(var, String.valueOf(val));
   }
 
   public int getIntVar(ConfVars var) {
@@ -6079,27 +6077,22 @@ public class HiveConf extends Configuration {
 
   public static long getLongVar(Configuration conf, ConfVars var) {
     assert (var.valClass == Long.class) : var.varname;
-    long ret = conf.getLong(var.varname, var.defaultLongVal);
     if (var.altName != null) {
-      ret = conf.getLong(var.varname, conf.getLong(var.altName, var.defaultLongVal));
+      return conf.getLong(var.varname, conf.getLong(var.altName, var.defaultLongVal));
     }
-    ConfTracker.trackGet(var, ret);
-    return ret;
+    return conf.getLong(var.varname, var.defaultLongVal);
   }
 
   public static long getLongVar(Configuration conf, ConfVars var, long defaultVal) {
-    long ret = conf.getLong(var.varname, defaultVal);
     if (var.altName != null) {
-      ret = conf.getLong(var.varname, conf.getLong(var.altName, defaultVal));
+      return conf.getLong(var.varname, conf.getLong(var.altName, defaultVal));
     }
-    ConfTracker.trackGet(var, ret);
-    return ret;
+    return conf.getLong(var.varname, defaultVal);
   }
 
   public static void setLongVar(Configuration conf, ConfVars var, long val) {
     assert (var.valClass == Long.class) : var.varname;
     conf.setLong(var.varname, val);
-    ConfTracker.trackSet(var, val);
   }
 
   public long getLongVar(ConfVars var) {
@@ -6112,27 +6105,22 @@ public class HiveConf extends Configuration {
 
   public static float getFloatVar(Configuration conf, ConfVars var) {
     assert (var.valClass == Float.class) : var.varname;
-    float ret = conf.getFloat(var.varname, var.defaultFloatVal);
     if (var.altName != null) {
-      ret = conf.getFloat(var.varname, conf.getFloat(var.altName, var.defaultFloatVal));
+      return conf.getFloat(var.varname, conf.getFloat(var.altName, var.defaultFloatVal));
     }
-    ConfTracker.trackGet(var, ret);
-    return ret;
+    return conf.getFloat(var.varname, var.defaultFloatVal);
   }
 
   public static float getFloatVar(Configuration conf, ConfVars var, float defaultVal) {
-    float ret = conf.getFloat(var.varname, defaultVal);
     if (var.altName != null) {
-      ret = conf.getFloat(var.varname, conf.getFloat(var.altName, defaultVal));
+      return conf.getFloat(var.varname, conf.getFloat(var.altName, defaultVal));
     }
-    ConfTracker.trackGet(var, ret);
-    return ret;
+    return conf.getFloat(var.varname, defaultVal);
   }
 
   public static void setFloatVar(Configuration conf, ConfVars var, float val) {
     assert (var.valClass == Float.class) : var.varname;
     conf.setFloat(var.varname, val);
-    ConfTracker.trackSet(var, val);
   }
 
   public float getFloatVar(ConfVars var) {
@@ -6145,27 +6133,22 @@ public class HiveConf extends Configuration {
 
   public static boolean getBoolVar(Configuration conf, ConfVars var) {
     assert (var.valClass == Boolean.class) : var.varname;
-    boolean ret = conf.getBoolean(var.varname, var.defaultBoolVal);
     if (var.altName != null) {
-      ret = conf.getBoolean(var.varname, conf.getBoolean(var.altName, var.defaultBoolVal));
+      return conf.getBoolean(var.varname, conf.getBoolean(var.altName, var.defaultBoolVal));
     }
-    ConfTracker.trackGet(var, ret);
-    return ret;
+    return conf.getBoolean(var.varname, var.defaultBoolVal);
   }
 
   public static boolean getBoolVar(Configuration conf, ConfVars var, boolean defaultVal) {
-    boolean ret = conf.getBoolean(var.varname, defaultVal);
     if (var.altName != null) {
-      ret = conf.getBoolean(var.varname, conf.getBoolean(var.altName, defaultVal));
+      return conf.getBoolean(var.varname, conf.getBoolean(var.altName, defaultVal));
     }
-    ConfTracker.trackGet(var, ret);
-    return ret;
+    return conf.getBoolean(var.varname, defaultVal);
   }
 
   public static void setBoolVar(Configuration conf, ConfVars var, boolean val) {
     assert (var.valClass == Boolean.class) : var.varname;
     conf.setBoolean(var.varname, val);
-    ConfTracker.trackSet(var, val);
   }
 
   public boolean getBoolVar(ConfVars var) {
@@ -6178,52 +6161,41 @@ public class HiveConf extends Configuration {
 
   public static String getVar(Configuration conf, ConfVars var) {
     assert (var.valClass == String.class) : var.varname;
-    String val = var.altName != null ? conf.get(var.varname, conf.get(var.altName, var.defaultStrVal))
+    return var.altName != null ? conf.get(var.varname, conf.get(var.altName, var.defaultStrVal))
       : conf.get(var.varname, var.defaultStrVal);
-    ConfTracker.trackGet(var, val);
-    return val;
   }
 
   public static String getVarWithoutType(Configuration conf, ConfVars var) {
-    String val = var.altName != null ? conf.get(var.varname, conf.get(var.altName, var.defaultExpr))
+    return var.altName != null ? conf.get(var.varname, conf.get(var.altName, var.defaultExpr))
       : conf.get(var.varname, var.defaultExpr);
-    ConfTracker.trackGet(var, val);
-    return val;
   }
 
   public static String getTrimmedVar(Configuration conf, ConfVars var) {
     assert (var.valClass == String.class) : var.varname;
-    String val = conf.getTrimmed(var.varname, var.defaultStrVal);
     if (var.altName != null) {
-      val = conf.getTrimmed(var.varname, conf.getTrimmed(var.altName, var.defaultStrVal));
+      return conf.getTrimmed(var.varname, conf.getTrimmed(var.altName, var.defaultStrVal));
     }
-    ConfTracker.trackGet(var, val);
-    return val;
+    return conf.getTrimmed(var.varname, var.defaultStrVal);
   }
 
   public static String[] getTrimmedStringsVar(Configuration conf, ConfVars var) {
     assert (var.valClass == String.class) : var.varname;
     String[] result = conf.getTrimmedStrings(var.varname, (String[])null);
     if (result != null) {
-      ConfTracker.trackGet(var, conf.get(var.varname));
       return result;
     }
     if (var.altName != null) {
       result = conf.getTrimmedStrings(var.altName, (String[])null);
       if (result != null) {
-        ConfTracker.trackGet(var, conf.get(var.altName));
         return result;
       }
     }
-    ConfTracker.trackGet(var, var.defaultStrVal);
     return org.apache.hadoop.util.StringUtils.getTrimmedStrings(var.defaultStrVal);
   }
 
   public static String getVar(Configuration conf, ConfVars var, String defaultVal) {
-    String ret = var.altName != null ? conf.get(var.varname, conf.get(var.altName, defaultVal))
+    return var.altName != null ? conf.get(var.varname, conf.get(var.altName, defaultVal))
       : conf.get(var.varname, defaultVal);
-    ConfTracker.trackGet(var, ret);
-    return ret;
   }
 
   public static String getVar(Configuration conf, ConfVars var, EncoderDecoder<String, String> encoderDecoder) {
@@ -6241,14 +6213,12 @@ public class HiveConf extends Configuration {
           retval.substring(0, LOG_PREFIX_LENGTH - 1));
       retval = retval.substring(0, LOG_PREFIX_LENGTH - 1);
     }
-    ConfTracker.trackGet(ConfVars.HIVE_LOG_TRACE_ID, retval);
     return retval;
   }
 
   public static void setVar(Configuration conf, ConfVars var, String val) {
     assert (var.valClass == String.class) : var.varname;
     conf.set(var.varname, val, "setVar");
-    ConfTracker.trackSet(var, val);
   }
   public static void setVar(Configuration conf, ConfVars var, String val,
     EncoderDecoder<String, String> encoderDecoder) {
@@ -6328,12 +6298,12 @@ public class HiveConf extends Configuration {
   }
 
   public HiveConf() {
-    super();
+    super(HiveConfGenerator.getGeneratedConfig());
     initialize(this.getClass());
   }
 
   public HiveConf(Class<?> cls) {
-    super();
+    super(HiveConfGenerator.getGeneratedConfig());
     initialize(cls);
   }
 
@@ -6353,6 +6323,35 @@ public class HiveConf extends Configuration {
     restrictList.addAll(other.restrictList);
     hiddenSet.addAll(other.hiddenSet);
     modWhiteListPattern = other.modWhiteListPattern;
+  }
+
+  @Override
+  public void set(String name, String value) {
+    super.set(name, value, null);
+  }
+
+  @Override
+  public void set(String name, String value, String source) {
+    super.set(name, value, source);
+    ConfTracker.trackSet(name, value);
+  }
+
+  @Override
+  public String get(String name) {
+    String value = super.get(name);
+    ConfTracker.trackGet(name, value);
+    return value;
+  }
+
+  @Override
+  public String get(String name, String defaultValue) {
+    String value = super.get(name, defaultValue);
+    ConfTracker.trackGet(name, value);
+    return value;
+  }
+
+  public void generatorSet(String name, String value) {
+    set(name, value);
   }
 
   public Properties getAllProperties() {

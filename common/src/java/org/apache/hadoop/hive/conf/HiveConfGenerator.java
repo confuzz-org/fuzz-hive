@@ -23,12 +23,17 @@ import org.apache.hadoop.conf.Configuration;
 import com.pholser.junit.quickcheck.generator.GenerationStatus;
 import com.pholser.junit.quickcheck.generator.Generator;
 import com.pholser.junit.quickcheck.random.SourceOfRandomness;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.Map;
 
 public class HiveConfGenerator extends Generator<HiveConf> {
+    private static final Logger LOG = LoggerFactory.getLogger(HiveConfGenerator.class);
     private static HiveConf generatedConf = null;
+    private static String setMethodName = "generatorSet";
+    private static Class<?>[] setParameterTypes = {String.class, String.class};
     /**
      * Constructor for Configuration Generator
      */
@@ -38,7 +43,7 @@ public class HiveConfGenerator extends Generator<HiveConf> {
 
     public static HiveConf getGeneratedConfig() {
         if (generatedConf == null) {
-            return null;
+            return new HiveConf(new Configuration(), HiveConf.class);
         }
         return new HiveConf(generatedConf);
     }
@@ -51,13 +56,10 @@ public class HiveConfGenerator extends Generator<HiveConf> {
      */
     @Override
     public HiveConf generate(SourceOfRandomness random, GenerationStatus generationStatus) {
-        Configuration conf = new Configuration(true);
+        generatedConf = new HiveConf();
         try {
-            Map<String,Object> configMap = ConfuzzGenerator.generate(random);
-            for (Map.Entry<String,Object> entry: configMap.entrySet()) {
-                conf.set(entry.getKey(), String.valueOf(entry.getValue()));
-            }
-            generatedConf = new HiveConf(conf, HiveConf.class);
+            generatedConf = (HiveConf) ConfuzzGenerator.generate(random, generatedConf,
+                    HiveConf.class, setMethodName, setParameterTypes);
             return generatedConf;
         } catch (NoSuchMethodException e) {
             throw new RuntimeException(e);
