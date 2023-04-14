@@ -90,6 +90,7 @@ public class HiveConf extends Configuration {
   private static boolean loadHiveServer2Config = false;
   private static URL hiveDefaultURL = null;
   private static URL hiveSiteURL = null;
+  private static URL hiveCtestURL = null;
   private static URL hivemetastoreSiteUrl = null;
   private static URL hiveServer2SiteUrl = null;
 
@@ -197,6 +198,7 @@ public class HiveConf extends Configuration {
     hiveSiteURL = findConfigFile(classLoader, "hive-site.xml", true);
     hivemetastoreSiteUrl = findConfigFile(classLoader, "hivemetastore-site.xml", false);
     hiveServer2SiteUrl = findConfigFile(classLoader, "hiveserver2-site.xml", false);
+    hiveCtestURL = findConfigFile(classLoader, "ctest.xml", false);
 
     for (ConfVars confVar : ConfVars.values()) {
       vars.put(confVar.varname, confVar);
@@ -6347,6 +6349,10 @@ public class HiveConf extends Configuration {
     // Overlay hive-site.xml if it exists
     if (hiveSiteURL != null) {
       addResource(hiveSiteURL);
+    }
+
+    if (hiveCtestURL != null) {
+      addResource(hiveCtestURL);
     }
 
     // if embedded metastore is to be used as per config so far
