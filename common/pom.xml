@@ -312,6 +312,16 @@
       <groupId>edu.illinois.confuzz</groupId>
       <artifactId>confuzz-guidance</artifactId>
       <version>1.0.0-SNAPSHOT</version>
+      <exclusions>
+          <exclusion>
+              <groupId>com.squareup.okio</groupId>
+              <artifactId>okio</artifactId>
+          </exclusion>
+          <exclusion>
+              <groupId>org.ow2.asm</groupId>
+              <artifactId>asm-commons</artifactId>
+          </exclusion>
+      </exclusions>
     </dependency>
     <!-- JUnit-QuickCheck: API to write generators -->
     <dependency>
@@ -379,6 +389,11 @@
       </testResource>
     </testResources>
     <plugins>
+      <plugin>
+        <groupId>edu.illinois.confuzz</groupId>
+        <artifactId>confuzz-maven-plugin</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-antrun-plugin</artifactId>
