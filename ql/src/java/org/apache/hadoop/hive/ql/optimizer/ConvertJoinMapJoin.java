@@ -758,7 +758,7 @@ public class ConvertJoinMapJoin implements SemanticNodeProcessor {
       // This is a workaround for now. Right fix would be to refactor code in the
       // MapRecordProcessor and ReduceRecordProcessor with respect to the sources.
       Set<ReduceSinkOperator> set =
-          OperatorUtils.findOperatorsUpstream(parentOp.getParentOperators(),
+          OperatorUtils.findOperatorsUpstream((List<Operator<?>>)parentOp.getParentOperators(),
               ReduceSinkOperator.class);
       if (size < 0) {
         size = set.size();

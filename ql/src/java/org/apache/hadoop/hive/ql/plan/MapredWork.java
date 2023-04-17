@@ -76,8 +76,8 @@ public class MapredWork extends AbstractOperatorDesc {
     }
   }
 
-  public List<Operator<?>> getAllOperators() {
-    List<Operator<?>> ops = new ArrayList<Operator<?>>();
+  public List<Operator<? extends OperatorDesc>> getAllOperators() {
+    List<Operator<? extends OperatorDesc>> ops = new ArrayList<Operator<?>>();
     ops.addAll(mapWork.getAllOperators());
     if (reduceWork != null) {
       ops.addAll(reduceWork.getAllOperators());
