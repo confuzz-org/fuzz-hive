@@ -153,11 +153,11 @@ public abstract class BaseWork extends AbstractOperatorDesc {
   public abstract Set<Operator<? extends OperatorDesc>> getAllRootOperators();
   public abstract Operator<? extends OperatorDesc> getAnyRootOperator();
 
-  public Set<Operator<?>> getAllOperators() {
+  public Set<Operator<? extends OperatorDesc>> getAllOperators() {
 
-    Set<Operator<?>> returnSet = new LinkedHashSet<Operator<?>>();
-    Set<Operator<?>> opSet = getAllRootOperators();
-    Stack<Operator<?>> opStack = new Stack<Operator<?>>();
+    Set<Operator<? extends OperatorDesc>> returnSet = new LinkedHashSet<Operator<?>>();
+    Set<Operator<? extends OperatorDesc>> opSet = getAllRootOperators();
+    Stack<Operator<? extends OperatorDesc>> opStack = new Stack<Operator<?>>();
 
     // add all children
     opStack.addAll(opSet);
@@ -513,7 +513,7 @@ public abstract class BaseWork extends AbstractOperatorDesc {
   }
 
   public void configureJobConf(JobConf job) {
-    OperatorUtils.findOperators(getAllRootOperators(), FileSinkOperator.class).forEach(fs -> {
+    OperatorUtils.findOperators((Set<Operator<?>>) getAllRootOperators(), FileSinkOperator.class).forEach(fs -> {
       LOG.debug("Configuring JobConf for table {}.{}", fs.getConf().getTableInfo().getDbName(),
           fs.getConf().getTableInfo().getTableName());
       PlanUtils.configureJobConf(fs.getConf().getTableInfo(), job);
