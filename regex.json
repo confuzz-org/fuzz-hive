@@ -1,18 +1,282 @@
 [
-  {
-    "name": "myage",
-    "regex": "^[0-9]{1,3}"
-  },
-  {
-    "name": "myname",
-    "regex": "ShuaiWang"
-  },
-  {
-    "name": "myemail",
-    "regex": "^[a-zA-Z0-9._%+-]{3}@[a-zA-Z0-9.-]{3}\\.[a-zA-Z]{2,4}$"
-  },
-  {
-    "name": "fake-param",
-    "regex": "always|asneeded"
-  }
+    {
+        "name": "hive.trigger.validation.interval",
+        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+    },
+    {
+        "name": "hive.security.authorization.createtable.group.grants",
+        "regex": "|[a-z]+(,[a-z]+):(all|alter|update|create|drop|index|lock|select|show_database)(;[a-z]+(,[a-z]+):(all|alter|update|create|drop|index|lock|select|show_database))*"
+    },
+    {
+        "name": "datanucleus.storeManagerType",
+        "regex": "rdbms"
+    },
+    {
+        "name": "hive.hook.proto.rollover-interval",
+        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+    },
+    {
+        "name": "hive.vectorized.input.format.supports.enabled",
+        "regex": "decimal_64"
+    },
+    {
+        "name": "hive.exec.stagingdir",
+        "regex": "[.a-z][a-z]*(-[a-z]+)*"
+    },
+    {
+        "name": "hive.llap.zk.registry.user",
+        "regex": "[a-z]+"
+    },
+    {
+        "name": "hive.execution.mode",
+        "regex": "container|llap"
+    },
+    {
+        "name": "hive.metastore.event.expiry.duration",
+        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+    },
+    {
+        "name": "hive.exec.default.partition.name",
+        "regex": "__HIVE_DEFAULT_PARTITION__"
+    },
+    {
+        "name": "hive.vectorized.adaptor.usage.mode",
+        "regex": "none|chosen|all"
+    },
+    {
+        "name": "hive.llap.daemon.queue.name",
+        "regex": "llap_queue"
+    },
+    {
+        "name": "hive.metastore.event.message.factory",
+        "regex": "org\\.apache\\.hadoop\\.hive\\.metastore\\.messaging\\.json\\.(gzip\\.GzipJSONMessageEncoder|JSONMessageEncoder)"
+    },
+    {
+        "name": "hive.metastore.client.socket.lifetime",
+        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+    },
+    {
+        "name": "hive.repl.retry.jitter",
+        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+    },
+    {
+        "name": "hive.repl.retry.max.delay.between.retries",
+        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+    },
+    {
+        "name": "hive.server2.tez.session.lifetime",
+        "regex": "-1|[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+    },
+    {
+        "name": "metastore.metadata.transformer.class",
+        "regex": "org\\.apache\\.hadoop\\.hive\\.metastore\\.MetastoreDefaultTransformer"
+    },
+    {
+        "name": "hive.materializedview.rewriting.strategy",
+        "regex": "heuristic"
+    },
+    {
+        "name": "hive.metastore.serdes.without.from.deserializer",
+        "regex": "org\\.apache\\.iceberg\\.mr\\.hive\\.HiveIcebergSerDe"
+    },
+    {
+        "name": "hive.service.metrics.codahale.reporter.classes",
+        "regex": "org\\.apache\\.hadoop\\.hive\\.common\\.metrics\\.metrics2\\.JsonFileMetricsReporter, org\\.apache\\.hadoop\\.hive\\.common\\.metrics\\.metrics2\\.JmxMetricsReporter"
+    },
+    {
+        "name": "hive.metastore.filter.hook",
+        "regex": "org\\.apache\\.hadoop\\.hive\\.metastore\\.DefaultMetaStoreFilterHookImpl"
+    },
+    {
+        "name": "fs.permissions.umask-mode",
+        "regex": "[0-7][0-7][0-7]"
+    },
+    {
+        "name": "hive.compactor.cleaner.duration.update.interval",
+        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+    },
+    {
+        "name": "hive.query.results.cache.max.entry.lifetime",
+        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+    },
+    {
+        "name": "hive.repl.retry.total.duration",
+        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+    },
+    {
+        "name": "hive.server2.compile.lock.timeout",
+        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+    },
+    {
+        "name": "hive.metastore.event.clean.freq",
+        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+    },
+    {
+        "name": "mapreduce.map.log.level",
+        "regex": "INFO|DEBUG|FATAL"
+    },
+    {
+        "name": "hive.execution.engine",
+        "regex": "mr|tez|spark"
+    },
+    {
+        "name": "hive.query.max.length",
+        "regex": "1size"
+    },
+    {
+        "name": "hive.compactor.initiator.duration.update.interval",
+        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+    },
+    {
+        "name": "tez.queue.name",
+        "regex": "default|test|tez_queue|tezq1|nondefault"
+    },
+    {
+        "name": "hive.txn.timeout",
+        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+    },
+    {
+        "name": "hive.service.metrics.file.frequency",
+        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+    },
+    {
+        "name": "hive.compactor.cleaner.run.interval",
+        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+    },
+    {
+        "name": "hive.server2.tez.wm.am.registry.timeout",
+        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+    },
+    {
+        "name": "hive.support.quoted.identifiers",
+        "regex": "column|none"
+    },
+    {
+        "name": "hive.metastore.server.thrift.transport.mode",
+        "regex": "binary"
+    },
+    {
+        "name": "hive.compactor.aborted.txn.time.threshold",
+        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+    },
+    {
+        "name": "hive.metastore.client.socket.timeout",
+        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+    },
+    {
+        "name": "hive.compactor.check.interval",
+        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+    },
+    {
+        "name": "hive.zookeeper.connection.basesleeptime",
+        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+    },
+    {
+        "name": "hive.query.result.fileformat",
+        "regex": "SequenceFile|TextFile|RCfile"
+    },
+    {
+        "name": "hive.metastore.client.connect.retry.delay",
+        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+    },
+    {
+        "name": "metastore.txn.opentxn.timeout",
+        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+    },
+    {
+        "name": "datanucleus.plugin.pluginRegistryBundleCheck",
+        "regex": "EXCEPTION|LOG|NONE"
+    },
+    {
+        "name": "hive.hmshandler.retry.interval",
+        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+    },
+    {
+        "name": "hive.blobstore.supported.schemes",
+        "regex": "s3,s3a,s3n"
+    },
+    {
+        "name": "hive.zookeeper.session.timeout",
+        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+    },
+    {
+        "name": "hive.compactor.worker.timeout",
+        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+    },
+    {
+        "name": "hive.metastore.aggregate.stats.cache.max.writer.wait",
+        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+    },
+    {
+        "name": "hive.server2.tez.session.lifetime.jitter",
+        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+    },
+    {
+        "name": "hive.server2.logging.operation.level",
+        "regex": "EXECUTION|NONE"
+    },
+    {
+        "name": "hive.txn.manager",
+        "regex": "org\\.apache\\.hadoop\\.hive\\.ql\\.lockmgr\\.DummyTxnManager|org\\.apache\\.hadoop\\.hive\\.ql\\.lockmgr\\.DbTxnManager"
+    },
+    {
+        "name": "hive.repl.retry.initial.delay",
+        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+    },
+    {
+        "name": "hadoop.service.shutdown.timeout",
+        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+    },
+    {
+        "name": "mapreduce.reduce.log.level",
+        "regex": "INFO|DEBUG|FATAL"
+    },
+    {
+        "name": "hive.lock.sleep.between.retries",
+        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+    },
+    {
+        "name": "datanucleus.connectionPoolingType",
+        "regex": "HikariCP|DBCP|dbcp2|C3P0|Proxool|BoneCP|TomCat"
+    },
+    {
+        "name": "hive.metastore.aggregate.stats.cache.ttl",
+        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+    },
+    {
+        "name": "metastore.compactor.initiator.failed.retry.time",
+        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+    },
+    {
+        "name": "hive.cbo.fallback.strategy",
+        "regex": "CONSERVATIVE"
+    },
+    {
+        "name": "hive.ddl.output.format",
+        "regex": "text"
+    },
+    {
+        "name": "hive.zookeeper.connection.timeout",
+        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+    },
+    {
+        "name": "hive.driver.parallel.compilation.global.limit",
+        "lower": "-1",
+        "upper": "100"
+    },
+    {
+        "name": "hive.vectorized.testing.reducer.batch.size",
+        "lower": "-1",
+        "upper": "10000"
+    },
+    {
+        "name": "hive.server2.llap.concurrent.queries",
+        "lower": "-1",
+        "upper": "100"
+    },
+    {
+        "name": "hive.tez.unordered.output.buffer.size.mb",
+        "lower": "-1",
+        "upper": "10000"
+    }
 ]
