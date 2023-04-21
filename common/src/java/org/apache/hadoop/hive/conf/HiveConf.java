@@ -6351,7 +6351,6 @@ public class HiveConf extends Configuration {
   }
 
   public void generatorSet(String name, String value) {
-    ConfigTracker.trackGenerated(name, value);
     set(name, value);
   }
 
