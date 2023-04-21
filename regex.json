@@ -121,7 +121,7 @@
     },
     {
         "name": "hive.query.max.length",
-        "regex": "1size"
+        "regex": "[1-9][0-9]*(|K|G|M)B"
     },
     {
         "name": "hive.compactor.initiator.duration.update.interval",
