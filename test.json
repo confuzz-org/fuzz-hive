@@ -1,0 +1,6 @@
+[
+    {
+        "name": "fake-param",
+        "regex": "always|asneeded"
+    }
+]
