@@ -1,19 +1,11 @@
 [
     {
-        "name": "hive.trigger.validation.interval",
-        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
-    },
-    {
         "name": "hive.security.authorization.createtable.group.grants",
         "regex": "|[a-z]+(,[a-z]+):(all|alter|update|create|drop|index|lock|select|show_database)(;[a-z]+(,[a-z]+):(all|alter|update|create|drop|index|lock|select|show_database))*"
     },
     {
         "name": "datanucleus.storeManagerType",
         "regex": "rdbms"
-    },
-    {
-        "name": "hive.hook.proto.rollover-interval",
-        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
     },
     {
         "name": "hive.vectorized.input.format.supports.enabled",
@@ -32,10 +24,6 @@
         "regex": "container|llap"
     },
     {
-        "name": "hive.metastore.event.expiry.duration",
-        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
-    },
-    {
         "name": "hive.exec.default.partition.name",
         "regex": "__HIVE_DEFAULT_PARTITION__"
     },
@@ -52,20 +40,8 @@
         "regex": "org\\.apache\\.hadoop\\.hive\\.metastore\\.messaging\\.json\\.(gzip\\.GzipJSONMessageEncoder|JSONMessageEncoder)"
     },
     {
-        "name": "hive.metastore.client.socket.lifetime",
-        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
-    },
-    {
-        "name": "hive.repl.retry.jitter",
-        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
-    },
-    {
-        "name": "hive.repl.retry.max.delay.between.retries",
-        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
-    },
-    {
         "name": "hive.server2.tez.session.lifetime",
-        "regex": "-1|[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
+        "regex": "-1|[1-9][0-9][0-9][0-9][0-9](ns|us|ms|s|m|h|d)"
     },
     {
         "name": "metastore.metadata.transformer.class",
@@ -92,26 +68,6 @@
         "regex": "[0-7][0-7][0-7]"
     },
     {
-        "name": "hive.compactor.cleaner.duration.update.interval",
-        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
-    },
-    {
-        "name": "hive.query.results.cache.max.entry.lifetime",
-        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
-    },
-    {
-        "name": "hive.repl.retry.total.duration",
-        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
-    },
-    {
-        "name": "hive.server2.compile.lock.timeout",
-        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
-    },
-    {
-        "name": "hive.metastore.event.clean.freq",
-        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
-    },
-    {
         "name": "mapreduce.map.log.level",
         "regex": "INFO|DEBUG|FATAL"
     },
@@ -120,32 +76,8 @@
         "regex": "mr|tez|spark"
     },
     {
-        "name": "hive.query.max.length",
-        "regex": "[1-9][0-9]*(|K|G|M)B"
-    },
-    {
-        "name": "hive.compactor.initiator.duration.update.interval",
-        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
-    },
-    {
         "name": "tez.queue.name",
         "regex": "default|test|tez_queue|tezq1|nondefault"
-    },
-    {
-        "name": "hive.txn.timeout",
-        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
-    },
-    {
-        "name": "hive.service.metrics.file.frequency",
-        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
-    },
-    {
-        "name": "hive.compactor.cleaner.run.interval",
-        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
-    },
-    {
-        "name": "hive.server2.tez.wm.am.registry.timeout",
-        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
     },
     {
         "name": "hive.support.quoted.identifiers",
@@ -156,60 +88,16 @@
         "regex": "binary"
     },
     {
-        "name": "hive.compactor.aborted.txn.time.threshold",
-        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
-    },
-    {
-        "name": "hive.metastore.client.socket.timeout",
-        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
-    },
-    {
-        "name": "hive.compactor.check.interval",
-        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
-    },
-    {
-        "name": "hive.zookeeper.connection.basesleeptime",
-        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
-    },
-    {
         "name": "hive.query.result.fileformat",
         "regex": "SequenceFile|TextFile|RCfile"
-    },
-    {
-        "name": "hive.metastore.client.connect.retry.delay",
-        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
-    },
-    {
-        "name": "metastore.txn.opentxn.timeout",
-        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
     },
     {
         "name": "datanucleus.plugin.pluginRegistryBundleCheck",
         "regex": "EXCEPTION|LOG|NONE"
     },
     {
-        "name": "hive.hmshandler.retry.interval",
-        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
-    },
-    {
         "name": "hive.blobstore.supported.schemes",
         "regex": "s3,s3a,s3n"
-    },
-    {
-        "name": "hive.zookeeper.session.timeout",
-        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
-    },
-    {
-        "name": "hive.compactor.worker.timeout",
-        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
-    },
-    {
-        "name": "hive.metastore.aggregate.stats.cache.max.writer.wait",
-        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
-    },
-    {
-        "name": "hive.server2.tez.session.lifetime.jitter",
-        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
     },
     {
         "name": "hive.server2.logging.operation.level",
@@ -220,32 +108,12 @@
         "regex": "org\\.apache\\.hadoop\\.hive\\.ql\\.lockmgr\\.DummyTxnManager|org\\.apache\\.hadoop\\.hive\\.ql\\.lockmgr\\.DbTxnManager"
     },
     {
-        "name": "hive.repl.retry.initial.delay",
-        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
-    },
-    {
-        "name": "hadoop.service.shutdown.timeout",
-        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
-    },
-    {
         "name": "mapreduce.reduce.log.level",
         "regex": "INFO|DEBUG|FATAL"
     },
     {
-        "name": "hive.lock.sleep.between.retries",
-        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
-    },
-    {
         "name": "datanucleus.connectionPoolingType",
         "regex": "HikariCP|DBCP|dbcp2|C3P0|Proxool|BoneCP|TomCat"
-    },
-    {
-        "name": "hive.metastore.aggregate.stats.cache.ttl",
-        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
-    },
-    {
-        "name": "metastore.compactor.initiator.failed.retry.time",
-        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
     },
     {
         "name": "hive.cbo.fallback.strategy",
@@ -254,10 +122,6 @@
     {
         "name": "hive.ddl.output.format",
         "regex": "text"
-    },
-    {
-        "name": "hive.zookeeper.connection.timeout",
-        "regex": "[1-9][0-9]*(ns|nsec|us|usec|ms|msec|s|sec|m|min|h|hour|d|day)"
     },
     {
         "name": "hive.driver.parallel.compilation.global.limit",
