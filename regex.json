@@ -142,5 +142,9 @@
         "name": "hive.tez.unordered.output.buffer.size.mb",
         "lower": "-1",
         "upper": "10000"
+    },
+    {
+        "name": "hive.hashtable.initialCapacity",
+        "lower": "0"
     }
 ]
