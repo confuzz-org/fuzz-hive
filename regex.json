@@ -112,10 +112,6 @@
         "regex": "INFO|DEBUG|FATAL"
     },
     {
-        "name": "datanucleus.connectionPoolingType",
-        "regex": "HikariCP|DBCP|dbcp2|C3P0|Proxool|BoneCP|TomCat"
-    },
-    {
         "name": "hive.cbo.fallback.strategy",
         "regex": "CONSERVATIVE"
     },
