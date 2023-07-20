@@ -1,7 +1,7 @@
 [
     {
         "name": "hive.security.authorization.createtable.group.grants",
-        "regex": "|[a-z]+(,[a-z]+):(all|alter|update|create|drop|index|lock|select|show_database)(;[a-z]+(,[a-z]+):(all|alter|update|create|drop|index|lock|select|show_database))*"
+        "regex": "|[a-z]+(,[a-z]+):(all|alter|update|create|drop|insert|lock|select|show_database)(;[a-z]+(,[a-z]+):(all|alter|update|create|drop|insert|lock|select|show_database))*"
     },
     {
         "name": "datanucleus.storeManagerType",
